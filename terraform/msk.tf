@@ -1,5 +1,5 @@
 resource "aws_msk_serverless_cluster" "msk_cluster" {
-  cluster_name = "twitchapi-cluster"
+  cluster_name = "${var.app_name}-serverless-msk-cluster"
 
   vpc_config {
     subnet_ids         = aws_subnet.private[*].id

@@ -10,6 +10,11 @@ resource "aws_iam_role" "eks_cluster_role" {
   assume_role_policy = data.aws_iam_policy_document.eks_assume_role.json
 }
 
+resource "aws_iam_role" "eks_fargate_profile_role" {
+  name               = "${var.app_name}-eks-fargate-profile-role"
+  assume_role_policy = data.aws_iam_policy_document.eks_fargate_profile_assume_role.json
+}
+
 resource "aws_iam_role_policy_attachment" "AmazonEKSClusterPolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
   role       = aws_iam_role.eks_cluster_role.name
@@ -20,4 +25,9 @@ resource "aws_iam_role_policy_attachment" "AmazonEKSClusterPolicy" {
 resource "aws_iam_role_policy_attachment" "AmazonEKSVPCResourceController" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
   role       = aws_iam_role.eks_cluster_role.name
+}
+
+resource "aws_iam_role_policy_attachment" "AmazonEKSFargatePodExecutionRolePolicy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy"
+  role       = aws_iam_role.eks_fargate_profile_role.name
 }

@@ -20,6 +20,17 @@ data "aws_iam_policy_document" "eks_assume_role" {
   }
 }
 
+data "aws_iam_policy_document" "eks_fargate_profile_assume_role" {
+  statement {
+    actions = ["sts:AssumeRole"]
+
+    principals {
+      type        = "Service"
+      identifiers = ["eks-fargate-pods.amazonaws.com"]
+    }
+  }
+}
+
 resource "aws_iam_policy" "create_topics" {
   name        = "MSKServerlessClusterPolicy"
   path        = "/"

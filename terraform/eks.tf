@@ -29,3 +29,14 @@ resource "aws_cloudwatch_log_group" "eks_log" {
   name              = "/aws/eks/${var.app_name}-${var.eks_cluster_name}/cluster"
   retention_in_days = 1
 }
+
+resource "aws_eks_fargate_profile" "eks_fargate" {
+  cluster_name           = aws_eks_cluster.cluster.name
+  fargate_profile_name   = "${var.app_name}-eks-fargate-profile"
+  pod_execution_role_arn = aws_iam_role.eks_fargate_profile_role.arn
+  subnet_ids             = aws_subnet.private[*].id
+
+  selector {
+    namespace = var.app_name
+  }
+}

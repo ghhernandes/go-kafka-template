@@ -9,9 +9,10 @@ terraform {
 
 provider "aws" {
   region = var.region
-
-  tags {
-      App = "twitchapi-stack"
+  default_tags {
+    tags = {
+      App       = "twitch-eventsub"
       Terraform = "true"
+    }
   }
 }

@@ -47,6 +47,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_app_name"></a> [app\_name](#input\_app\_name) | n/a | `string` | `"go-kafka-template"` | no |
 | <a name="input_eks_cluster_name"></a> [eks\_cluster\_name](#input\_eks\_cluster\_name) | n/a | `string` | `"eks-cluster"` | no |
+| <a name="input_msk_cluster_name"></a> [msk\_cluster\_name](#input\_msk\_cluster\_name) | n/a | `string` | `"msk-cluster"` | no |
 | <a name="input_region"></a> [region](#input\_region) | n/a | `string` | `"us-east-1"` | no |
 
 ## Outputs

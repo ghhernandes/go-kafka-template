@@ -1,5 +1,5 @@
 resource "aws_eks_cluster" "cluster" {
-  name     = "${var.app_name}-eks-cluster"
+  name     = var.eks_cluster_name
   role_arn = aws_iam_role.eks_cluster_role.arn
 
   vpc_config {
@@ -26,13 +26,13 @@ output "kubeconfig-certificate-authority-data" {
 resource "aws_cloudwatch_log_group" "eks_log" {
   # The log group name format is /aws/eks/<cluster-name>/cluster
   # Reference: https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html
-  name              = "/aws/eks/${var.app_name}-${var.eks_cluster_name}/cluster"
+  name              = "/aws/eks/${var.eks_cluster_name}/cluster"
   retention_in_days = 1
 }
 
 resource "aws_eks_fargate_profile" "eks_fargate" {
   cluster_name           = aws_eks_cluster.cluster.name
-  fargate_profile_name   = "${var.app_name}-eks-fargate-profile"
+  fargate_profile_name   = "${var.eks_cluster_name}-fargate-profile"
   pod_execution_role_arn = aws_iam_role.eks_fargate_profile_role.arn
   subnet_ids             = aws_subnet.private[*].id
 

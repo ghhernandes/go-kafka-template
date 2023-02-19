@@ -10,3 +10,7 @@ variable "app_name" {
 variable "eks_cluster_name" {
   default = "eks-cluster"
 }
+
+variable "msk_cluster_name" {
+  default = "msk-cluster"
+}

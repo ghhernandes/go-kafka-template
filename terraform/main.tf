@@ -11,7 +11,7 @@ provider "aws" {
   region = var.region
   default_tags {
     tags = {
-      App       = "twitch-eventsub"
+      App       = var.app_name
       Terraform = "true"
     }
   }

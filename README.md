@@ -1,6 +1,5 @@
-# Twitch EventSub
-
-Listen for events that happens on Twitch.
+# go-kafka-template
+Go project template with Kafka 
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -46,7 +45,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_app_name"></a> [app\_name](#input\_app\_name) | n/a | `string` | `"twitch-eventsub"` | no |
+| <a name="input_app_name"></a> [app\_name](#input\_app\_name) | n/a | `string` | `"go-kafka-template"` | no |
 | <a name="input_eks_cluster_name"></a> [eks\_cluster\_name](#input\_eks\_cluster\_name) | n/a | `string` | `"eks-cluster"` | no |
 | <a name="input_region"></a> [region](#input\_region) | n/a | `string` | `"us-east-1"` | no |
 

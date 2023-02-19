@@ -4,7 +4,7 @@ variable "region" {
 }
 
 variable "app_name" {
-  default = "twitch-eventsub"
+  default = "go-kafka-template"
 }
 
 variable "eks_cluster_name" {

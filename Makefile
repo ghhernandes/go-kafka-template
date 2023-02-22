@@ -1,4 +1,7 @@
 
+docker:
+	docker-compose up -d
+
 tf-docs:
 	terraform-docs markdown table terraform/ --output-file ../README.md
 
